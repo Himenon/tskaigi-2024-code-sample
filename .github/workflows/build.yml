@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+        os: [windows-latest, ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/initialize
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 8.15.1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "20.x"
+          cache: "pnpm"
+      - run: pnpm i --frozen-lockfile
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Test & Build
+        run: |
+          pnpm build
+          pnpm test
+        env:
+          CI: true
