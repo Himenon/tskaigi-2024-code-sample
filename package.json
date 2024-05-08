@@ -2,10 +2,7 @@
   "name": "@himenon/template-esm-js",
   "version": "1.1.6",
   "description": "ESModule Library Template",
-  "keywords": [
-    "template",
-    "typescript"
-  ],
+  "keywords": ["template", "typescript"],
   "homepage": "https://github.com/Himenon/template-esm-js#readme",
   "bugs": {
     "url": "https://github.com/Himenon/template-esm-js/issues"
@@ -37,11 +34,7 @@
   "directories": {
     "dist": "dist"
   },
-  "files": [
-    "dist",
-    "package.json",
-    "README.md"
-  ],
+  "files": ["dist", "package.json", "README.md"],
   "scripts": {
     "start": "pnpm ts ./src/index.ts",
     "build": "tsup src/*.ts",
@@ -60,9 +53,7 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,json,yml,yaml,html,md,ts,tsx}": [
-      "biome format --no-errors-on-unmatched --write"
-    ]
+    "*.{js,jsx,json,yml,yaml,html,md,ts,tsx}": ["biome format --no-errors-on-unmatched --write"]
   },
   "devDependencies": {
     "@biomejs/biome": "^1.6.3",

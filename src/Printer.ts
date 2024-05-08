@@ -14,12 +14,10 @@ export const generateWithoutTransformer = (sourceText: string): string => {
     sourceText,
     ts.ScriptTarget.ESNext
   );
-
   // ==============
   // Transformation
   // ==============
-  const transformers: TransformerFactory<ts.SourceFile>[] = [];
-  const result = ts.transform(source, transformers);
+  const result = ts.transform(source, []);
   result.dispose();
 
   // ==============
