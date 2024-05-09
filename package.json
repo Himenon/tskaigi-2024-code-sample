@@ -90,6 +90,7 @@
     "access": "public"
   },
   "dependencies": {
+    "code-block-writer": "13.0.1",
     "ts-morph": "^22.0.0"
   }
 }

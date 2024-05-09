@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  code-block-writer:
+    specifier: 13.0.1
+    version: 13.0.1
   ts-morph:
     specifier: ^22.0.0
     version: 22.0.0
