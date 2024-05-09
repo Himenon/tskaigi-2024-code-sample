@@ -27,3 +27,24 @@ export const generateWithoutTransformer = (sourceText: string): string => {
   const transformedSourceFile = result.transformed[0];
   return printer.printFile(transformedSourceFile);
 };
+
+export const generate = (statements: ts.Statement[]) => {
+  const sourceFileNode = ts.createSourceFile(
+    "dummy",
+    "", // empty text
+    ts.ScriptTarget.ESNext
+  );
+
+  const transformedSourceFile = ts.factory.updateSourceFile(
+    sourceFileNode,
+    statements,
+    sourceFileNode.isDeclarationFile,
+    sourceFileNode.referencedFiles,
+    sourceFileNode.typeReferenceDirectives,
+    sourceFileNode.hasNoDefaultLib,
+    sourceFileNode.libReferenceDirectives
+  );
+
+  const printer = ts.createPrinter();
+  return printer.printFile(transformedSourceFile);
+};
