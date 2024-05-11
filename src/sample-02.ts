@@ -1,7 +1,7 @@
 import ts from "typescript";
 import * as fs from "fs";
 
-import * as Printer from "./Printer";
+import * as Printer from "./utils";
 
 const factory = ts.factory;
 
@@ -10,14 +10,13 @@ const sourceText = `const mainTask = () => {
   return subTask();
 }
 mainTask();
-
 `;
 
 const main = () => {
-  const code = Printer.generateWithoutTransformer(sourceText);
+  const code = Printer.generateCodeByPlainText(sourceText);
   fs.writeFileSync("output/sample1.ts", code, "utf8");
 
-  const code2 = Printer.generate([
+  const code2 = Printer.generateCodeByStatements([
     factory.createVariableStatement(
       undefined,
       factory.createVariableDeclarationList(
@@ -32,19 +31,12 @@ const main = () => {
               [],
               undefined,
               factory.createToken(ts.SyntaxKind.EqualsGreaterThanToken),
-              factory.createBlock(
-                [
-                  factory.createReturnStatement(
-                    factory.createStringLiteral("world")
-                  ),
-                ],
-                true
-              )
-            )
+              factory.createBlock([factory.createReturnStatement(factory.createStringLiteral("world"))], true),
+            ),
           ),
         ],
-        ts.NodeFlags.Const
-      )
+        ts.NodeFlags.Const,
+      ),
     ),
   ]);
   fs.writeFileSync("output/sample2.ts", code2, "utf8");

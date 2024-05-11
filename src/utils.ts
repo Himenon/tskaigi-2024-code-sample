@@ -5,15 +5,11 @@ export type TransformerFactory<T extends ts.Node> = ts.TransformerFactory<T>;
 /**
  * Traverse処理なし
  */
-export const generateWithoutTransformer = (sourceText: string): string => {
+export const generateCodeByPlainText = (sourceText: string): string => {
   // ==========
   // 抽象木の作成
   // ==========
-  const source = ts.createSourceFile(
-    "sample.ts",
-    sourceText,
-    ts.ScriptTarget.ESNext
-  );
+  const source = ts.createSourceFile("sample.ts", sourceText, ts.ScriptTarget.ESNext);
   // ==============
   // Transformation
   // ==============
@@ -28,11 +24,11 @@ export const generateWithoutTransformer = (sourceText: string): string => {
   return printer.printFile(transformedSourceFile);
 };
 
-export const generate = (statements: ts.Statement[]) => {
+export const generateCodeByStatements = (statements: ts.Statement[]) => {
   const sourceFileNode = ts.createSourceFile(
-    "dummy",
+    "",
     "", // empty text
-    ts.ScriptTarget.ESNext
+    ts.ScriptTarget.ESNext,
   );
 
   const transformedSourceFile = ts.factory.updateSourceFile(
@@ -42,7 +38,7 @@ export const generate = (statements: ts.Statement[]) => {
     sourceFileNode.referencedFiles,
     sourceFileNode.typeReferenceDirectives,
     sourceFileNode.hasNoDefaultLib,
-    sourceFileNode.libReferenceDirectives
+    sourceFileNode.libReferenceDirectives,
   );
 
   const printer = ts.createPrinter();
