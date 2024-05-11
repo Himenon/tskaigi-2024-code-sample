@@ -8,6 +8,7 @@ export const run = () => {
     return subTask();
   }
   mainTask1();
+  // SampleCode
   `;
 
   const code = Printer.generateCodeByPlainText(sourceText);
