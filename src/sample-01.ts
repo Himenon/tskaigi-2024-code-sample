@@ -7,7 +7,6 @@ export const run = () => {
     const subTask = () => {}
     return subTask();
   }
-  
   mainTask();
   `;
 
