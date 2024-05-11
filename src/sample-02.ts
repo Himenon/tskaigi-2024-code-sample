@@ -5,30 +5,32 @@ import * as Printer from "./utils";
 
 const factory = ts.factory;
 
-const code = Printer.generateCodeByStatements([
-  factory.createVariableStatement(
-    undefined,
-    factory.createVariableDeclarationList(
-      [
-        factory.createVariableDeclaration(
-          factory.createIdentifier("hello"),
-          undefined,
-          undefined,
-          factory.createArrowFunction(
+export const run = () => {
+  const code = Printer.generateCodeByStatements([
+    factory.createVariableStatement(
+      undefined,
+      factory.createVariableDeclarationList(
+        [
+          factory.createVariableDeclaration(
+            factory.createIdentifier("hello"),
             undefined,
             undefined,
-            [],
-            undefined,
-            factory.createToken(ts.SyntaxKind.EqualsGreaterThanToken),
-            factory.createBlock([factory.createReturnStatement(factory.createStringLiteral("world"))], true),
+            factory.createArrowFunction(
+              undefined,
+              undefined,
+              [],
+              undefined,
+              factory.createToken(ts.SyntaxKind.EqualsGreaterThanToken),
+              factory.createBlock([factory.createReturnStatement(factory.createStringLiteral("world"))], true),
+            ),
           ),
-        ),
-      ],
-      ts.NodeFlags.Const,
+        ],
+        ts.NodeFlags.Const,
+      ),
     ),
-  ),
-]);
+  ]);
 
-fs.writeFileSync("output/sample2.ts", code, "utf8");
+  fs.writeFileSync("output/sample2.ts", code, "utf8");
 
-console.log("Generated output/sample2.ts");
+  console.log("Generated output/sample2.ts");
+};
