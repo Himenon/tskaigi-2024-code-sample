@@ -3,11 +3,11 @@ import * as fs from "node:fs";
 import * as Printer from "./utils";
 
 export const run = () => {
-  const sourceText = `const mainTask = () => {
+  const sourceText = `const mainTask1 = () => {
     const subTask = () => {}
     return subTask();
   }
-  mainTask();
+  mainTask1();
   `;
 
   const code = Printer.generateCodeByPlainText(sourceText);

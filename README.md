@@ -13,5 +13,6 @@ pnpm run ts ./src/run-sample2.ts
 pnpm run ts ./src/run-sample3.ts
 
 # Watch Start
-pnpm run watch
+pnpm run watch:type-check
+pnpm run watch:vitest
 ```
