@@ -12,7 +12,7 @@ export const run = () => {
 
   const code = Printer.generateCodeByPlainText(sourceText);
 
-  fs.writeFileSync("output/sample1.ts", code, "utf8");
+  fs.writeFileSync("output/sample-01.ts", code, "utf8");
 
-  console.log("Generated output/sample1.ts");
+  console.log("Generated output/sample-01.ts");
 };

@@ -10,11 +10,13 @@ export const run = () => {
   `;
 
   const project = new Project();
-  const sourceFile = project.createSourceFile("output/sample-03.ts", "");
+  const sourceFile = project.createSourceFile("output/sample-03.ts", "", {
+    overwrite: true,
+  });
 
   sourceFile.addStatements([text]);
 
   project.saveSync();
 
-  console.log("Generated output/sample3.ts");
+  console.log("Generated output/sample-03.ts");
 };

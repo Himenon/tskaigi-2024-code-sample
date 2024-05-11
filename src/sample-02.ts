@@ -30,7 +30,7 @@ export const run = () => {
     ),
   ]);
 
-  fs.writeFileSync("output/sample2.ts", code, "utf8");
+  fs.writeFileSync("output/sample-02.ts", code, "utf8");
 
-  console.log("Generated output/sample2.ts");
+  console.log("Generated output/sample-02.ts");
 };

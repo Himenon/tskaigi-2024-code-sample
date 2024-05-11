@@ -5,7 +5,7 @@ import * as Module from "../sample-02";
 test("Sample2: Code Generate Test", () => {
   Module.run();
 
-  const generateCode = fs.readFileSync("output/sample2.ts", {
+  const generateCode = fs.readFileSync("output/sample-02.ts", {
     encoding: "utf-8",
   });
   expect(generateCode).toMatchSnapshot();
