@@ -1,5 +1,6 @@
 const mainTask1 = () => {
-  const subTask = () => {};
-  return subTask();
+    const subTask = () => { };
+    return subTask();
 };
 mainTask1();
+// SampleCode
