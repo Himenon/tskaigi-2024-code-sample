@@ -47,7 +47,8 @@
     "format": "biome format --write .",
     "validate": "biome check --apply .",
     "test:vitest": "vitest",
-    "watch": "run-p test:vitest type-check",
+    "watch:vitest": "vitest --update",
+    "watch": "run-p watch:vitest type-check",
     "type-check": "tsc --noEmit -p ./tsconfig.test.json",
     "ts": "node --no-warnings=ExperimentalWarning --experimental-specifier-resolution=node --loader ts-node/esm"
   },
