@@ -3,5 +3,12 @@
 ```bash
 pnpm run start
 
-pnpm run ts ./src/sample-02.ts
+
+# Run Code
+pnpm run ts ./src/run-sample1.ts
+pnpm run ts ./src/run-sample2.ts
+
+
+# Watch Start
+pnpm run watch
 ```
