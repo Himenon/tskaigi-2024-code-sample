@@ -48,8 +48,10 @@
     "validate": "biome check --apply .",
     "test:vitest": "vitest",
     "watch:vitest": "vitest --update",
-    "watch": "vitest --update && run-p watch:vitest type-check",
-    "type-check": "tsc --noEmit -p ./tsconfig.test.json",
+    "run:sample:1": "pnpm run ts ./src/run-sample1.ts",
+    "run:sample:2": "pnpm run ts ./src/run-sample2.ts",
+    "run:sample:3": "pnpm run ts ./src/run-sample3.ts",
+    "watch:type-check": "tsc --noEmit -w -p ./tsconfig.test.json",
     "ts": "node --no-warnings=ExperimentalWarning --experimental-specifier-resolution=node --loader ts-node/esm"
   },
   "simple-git-hooks": {
