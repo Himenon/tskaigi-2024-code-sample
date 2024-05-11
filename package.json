@@ -1,0 +1,90 @@
+{
+  "name": "@himenon/template-esm-js",
+  "version": "1.1.6",
+  "description": "ESModule Library Template",
+  "keywords": ["template", "typescript"],
+  "homepage": "https://github.com/Himenon/template-esm-js#readme",
+  "bugs": {
+    "url": "https://github.com/Himenon/template-esm-js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Himenon/template-esm-js.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Himenon",
+    "email": "k.himeno314@gmail.com",
+    "url": "https://github.com/Himenon"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "node": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": ["dist", "package.json", "README.md"],
+  "scripts": {
+    "start": "pnpm ts ./src/index.ts",
+    "build": "tsup src/*.ts",
+    "clean": "rimraf dist",
+    "lerna:version:up": "lerna version --yes",
+    "release:github:registry": "pnpm publish --registry https://npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}",
+    "release:npm:registry": "pnpm publish",
+    "test": "run-p test:vitest lint",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "validate": "biome check --apply .",
+    "test:vitest": "vitest",
+    "watch:vitest": "vitest --update",
+    "watch": "vitest --update && run-p watch:vitest type-check",
+    "type-check": "tsc --noEmit -p ./tsconfig.test.json",
+    "ts": "node --no-warnings=ExperimentalWarning --experimental-specifier-resolution=node --loader ts-node/esm"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,yml,yaml,html,md,ts,tsx}": ["biome format --no-errors-on-unmatched --write"]
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.6.3",
+    "@swc/core": "^1.4.11",
+    "@types/node": "20.12.2",
+    "@typescript-eslint/eslint-plugin": "7.4.0",
+    "@typescript-eslint/parser": "7.4.0",
+    "conventional-changelog-angular-all": "1.7.0",
+    "cross-env": "^7.0.3",
+    "lerna": "8.1.2",
+    "lint-staged": "15.2.2",
+    "npm-run-all": "4.1.5",
+    "rimraf": "^5.0.5",
+    "simple-git-hooks": "^2.11.1",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "typescript": "5.4.3",
+    "vitest": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "code-block-writer": "13.0.1",
+    "ts-morph": "^22.0.0"
+  }
+}

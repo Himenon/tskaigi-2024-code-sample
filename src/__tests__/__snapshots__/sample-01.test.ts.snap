@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Sample1: Code Generate Test 1`] = `
+"const mainTask = () => {
+    const subTask = () => { };
+    return subTask();
+};
+mainTask();
+"
+`;

@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Sample2: Code Generate Test 1`] = `
+"const hello = () => {
+    return "world";
+};
+"
+`;
